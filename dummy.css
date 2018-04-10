@@ -1,0 +1,53 @@
+/* demo page styles */
+body { font-family: Helvetica, Arial, sans-serif; text-align: center;}
+img { margin: 10px; }
+
+/* dummy image styles */
+.dummy {
+  box-sizing: border-box;
+  display: inline-block; 
+  position: relative;
+}
+.dummy:before {
+  content: '';
+  position: absolute;
+  background: lightgray;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.dummy:after { 
+  content: attr(width) " x " attr(height);
+  white-space: pre;
+  color: gray;
+  text-align: center;
+  display: block;
+  position: absolute;
+  width: 100%;
+  top: calc(50% - .5em);
+  font-size: 100%;
+}
+.dummy.alt:after {
+  content: attr(alt);
+}
+.dummy.double.alt:after {
+  content: attr(alt) "\A" attr(data-second);
+  white-space: pre;
+  top: calc(50% - 1em);
+}
+.dummy.big {
+  font-size: 200%;
+}
+.dummy.small {
+  font-size: 50%;
+}
+.dummy.round {
+  padding: 0 1em;
+}
+.dummy.round:before { 
+  border-radius: 1em;
+}
+.dummy.round:after {
+  margin-left: -1em;
+}

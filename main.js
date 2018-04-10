@@ -6,10 +6,8 @@ define(["refactoring"], function(refactoring) {
     const AppInit = brackets.getModule("utils/AppInit");
     
     
-    console.log(AppInit);
-    
     setTimeout(function() {
-        const documentTextObject = refactoring.getAllDocumentText();
+        const documentTextObject = refactoring.getCssDom();
         
         documentTextObject.forEach( (x) => {
             console.log(x.text);
