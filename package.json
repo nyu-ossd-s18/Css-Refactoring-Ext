@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/nyu-ossd-s18/Css-Refactoring-Ext/issues"
   },
-  "homepage": "https://github.com/nyu-ossd-s18/Css-Refactoring-Ext#readme"
+  "homepage": "https://github.com/nyu-ossd-s18/Css-Refactoring-Ext#readme",
+  "dependencies": {
+    "css": "^2.2.1"
+  }
 }

@@ -1,17 +1,16 @@
-define(["refactoring"], function(refactoring) {
+define(["cssRefactoringExtension", "refactoring"], function(cssRefactoringExt, rf) {
     
-    
-    
-    //Brackets Modules
-    const AppInit = brackets.getModule("utils/AppInit");
     
     
     setTimeout(function() {
-        const documentTextObject = refactoring.getCssDom();
+        const documentTextObject = rf.getAllDocumentText();
+        console.log(documentTextObject);
         
         documentTextObject.forEach( (x) => {
-            console.log(x.text);
-        })
+            const DomObj =  rf.getCssDom(x);
+            
+            console.log(rf.getColorRulesArray(DomObj));
+        });
     }, 1000);
     
     
