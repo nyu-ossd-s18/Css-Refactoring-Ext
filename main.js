@@ -42,6 +42,7 @@ define(function(require, exports, module) {
 
 
         panel = WorkspaceManager.createBottomPanel(CSS_COlOR_REFACTORING_PANEL, $(domContent),200);
+        console.log(panel.setVisible(true));
 
     });
 });
