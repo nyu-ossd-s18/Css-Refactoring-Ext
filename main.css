@@ -1,11 +1,11 @@
-.CSS_REFACTORING_EXTENSION .container {
+#CSS_COLOR_REFACTORING_EXTENSION_DOMCONTENT .container {
     background-color: #EEEEEE; 
     border: 1px solid gray;
     width: 600px; 
     height: 300px; 
 }
 
-.CSS_REFACTORING_EXTENSION .chosenColor {
+#CSS_COLOR_REFACTORING_EXTENSION_DOMCONTENT .chosenColor {
     width: 30%; 
     height: 100%; 
     float: left;
@@ -14,13 +14,13 @@
     align-items: center;
 }
 
-.CSS_REFACTORING_EXTENSION .complementaryColors {
+#CSS_COLOR_REFACTORING_EXTENSION_DOMCONTENT .complementaryColors {
     width: 70%; 
     height: 100%; 
     float: left;
 }
 
-.CSS_REFACTORING_EXTENSION .dot {
+#CSS_COLOR_REFACTORING_EXTENSION_DOMCONTENT .dot {
     height: 100px;
     width: 100px;
     background-color: #58355E;
@@ -28,40 +28,40 @@
     display: inline-block;
 }
 
-.CSS_REFACTORING_EXTENSION .colors {
+#CSS_COLOR_REFACTORING_EXTENSION_DOMCONTENT .colors {
     display: flex;
     justify-content: space-between;
     height: 75%;
 }
 
-.CSS_REFACTORING_EXTENSION .color {
+#CSS_COLOR_REFACTORING_EXTENSION_DOMCONTENT .color {
     height: 100%; 
     width: 20%;
     text-align: center;
 }
 
-.CSS_REFACTORING_EXTENSION .colorBox1 {
+#CSS_COLOR_REFACTORING_EXTENSION_DOMCONTENT .colorBox1 {
     height: 80%; 
     width: 80%; 
     margin: auto; 
     background-color: #E03616; 
 }
 
-.CSS_REFACTORING_EXTENSION .colorBox2 {
+#CSS_COLOR_REFACTORING_EXTENSION_DOMCONTENT .colorBox2 {
     height: 80%; 
     width: 80%; 
     margin: auto;  
     background-color: #FFF689; 
 }
 
-.CSS_REFACTORING_EXTENSION .colorBox3 {
+#CSS_COLOR_REFACTORING_EXTENSION_DOMCONTENT .colorBox3 {
     height: 80%; 
     width: 80%; 
     margin: auto; 
     background-color: #CFFFB0; 
 }
 
-.CSS_REFACTORING_EXTENSION .colorBox4 {
+#CSS_COLOR_REFACTORING_EXTENSION_DOMCONTENT .colorBox4 {
     height: 80%; 
     width: 80%; 
     margin: auto; 
