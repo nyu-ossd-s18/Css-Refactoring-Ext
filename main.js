@@ -36,6 +36,8 @@ define(function(require, exports, module) {
         }
     }
     
+    
+    //Main event that registers and initiates the extensions.
     AppInit.extensionsLoaded(function() {
         
         CommandManager.register("Css Color Refactoring", CSS_COLOR_REFACTORING_INIT, handleMenuToggle);
@@ -53,11 +55,12 @@ define(function(require, exports, module) {
             console.log(CSS_COlOR_REFACTORING_PANEL);
 
         }
+    
         
         const readHtmlFileError = function(err) {
-            console.log(err);
-            
+            console.log(err);        
         }
+        
         ExtensionUtils.loadFile(module, "index.html").then(function (fileContents) {
             console.log(fileContents);
             panel = WorkspaceManager.createBottomPanel(CSS_COlOR_REFACTORING_PANEL,$(fileContents),200);
@@ -71,8 +74,9 @@ define(function(require, exports, module) {
                     console.log("Clicked", evt);
                 });
                 
-                const colorBox1 = $(".colorBox1");
-                console.log(colorBox1[0].style);
+                //Sample jquery call.
+                const colorBox1 = $("#colorBox1");
+                colorBox1[0].style.backgroundColor = "blue";
                 //console.log(colorBox1.style("background-color"));
                 
             }
