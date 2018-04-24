@@ -22,6 +22,19 @@ define(function(require, exports, module) {
         console.log("Displaying UI");
     }
     
+    function toggleColorPickerCanvasView() {
+        const canvasPickerElement = $(".canvas_picker");
+        console.log(canvasPickerElement.style);
+        console.log(window.getComputedStyle(canvasPickerElement).display);
+        if (window.getComputedStyle(canvasPickerElement).display === "none") {
+            console.log("Displaying canvas");
+            canvasPickerElement.style.display = "block";
+        }
+        else {
+            console.log("hiding canvas");
+            canvasPickerElement.style.display = "none";
+        }
+    }
     
     function handleMenuToggle() {
         
@@ -72,11 +85,25 @@ define(function(require, exports, module) {
                 
                 //Click handler for handling change of selected color.
                 
-                const chosenColorCenter = $("#CSS_COLOR_REFACTORING_EXTENSION_DOMCONTENT #chosenColorCenter");
+                const baseColorBoxElement = document.getElementById("baseColorBox");
+                baseColorBoxElement.addEventListener("click", function(evt) {
+                    console.log(evt);
+                    toggleColorPickerCanvasView();
+                });
+                
+                
                 const colorPaletteElement = $("<img id='colorPalette'>");
-                colorPaletteElement.attr("src", colorPalettePath);
-            
-                chosenColorCenter.append(colorPaletteElement);
+                const canvasElement = document.getElementsByClassName("canvas_picker")[0].getContext("2d");
+                console.log(canvasElement);
+                var colorPickerImage = new Image();
+                
+                colorPickerImage.src = colorPalettePath;
+                
+                $(colorPickerImage).load(function() {
+                    canvasElement.drawImage(colorPickerImage, 0, 0);
+                })
+                
+                
                 //Sample jquery call.
                 const colorBox1 = $("#colorBox1");
                 colorBox1[0].style.backgroundColor = "blue";
