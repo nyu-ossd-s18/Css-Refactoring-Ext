@@ -104,7 +104,19 @@ define(function(require, exports, module) {
                 $(colorPickerImage).load(function() {
                     canvasElement.drawImage(colorPickerImage, 0, 0);
                 })
-                
+                $('#canvas_picker').click(function(event){
+                    var x = event.pageX - this.offsetLeft;
+                    var y = event.pageY - this.offsetTop;
+                    var imgData = canvas.getImageData(x, y, 1, 1).data;
+                    var R = imgData[0];
+                    var G = imgData[1];
+                    var B = imgData[2];
+                    var rgb = R + ',' + G + ',' + B;
+                     //$('#rgb input').val(rgb);
+                    var hex = rgbToHex(R,G,B);
+                    $('#baseColorHex input').val('#' + hex);
+                    
+                });
                 
                 //Sample jquery call.
                 const colorBox1 = $("#colorBox1");
@@ -112,9 +124,16 @@ define(function(require, exports, module) {
                 //console.log(colorBox1.style("background-color"));
                 
             }
+            
     
             const failure = function() {
                 console.log("Failed");
+            }
+            function rgbToHex(R,G,B) {return toHex(R)+toHex(G)+toHex(B)}
+            function toHex(n) {
+            n = parseInt(n,10);
+            if (isNaN(n)) return "00";
+            n = Math.max(0,Math.min(n,255));return "0123456789ABCDEF".charAt((n-n%16)/16) + "0123456789ABCDEF".charAt(n%16);
             }
             
             ExtensionUtils.loadStyleSheet(module, "main.css").then(success, failure);
