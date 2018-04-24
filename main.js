@@ -115,8 +115,14 @@ define(function(require, exports, module) {
                 $(colorPickerImage).load(function() {
                     ctx.drawImage(colorPickerImage, 0, 0, colorPickerImage.width, colorPickerImage.height,
                                            0, 0, canvasElement.width, canvasElement.height);
-                })
+                });
                 
+                canvasElement.addEventListener("click", function(evt) {
+
+                    
+                    console.log(evt);
+                    console.log(ctx.getImageData(evt.offsetX,evt.offsetY, 1, 1).data);
+                });
                 
                 //Sample jquery call.
                 const colorBox1 = $("#colorBox1");
