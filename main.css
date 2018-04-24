@@ -21,7 +21,9 @@
 #CSS_COLOR_REFACTORING_EXTENSION_DOMCONTENT .canvas_picker{
     background-color: aquamarine;
     display: none;
-    
+    position: fixed;
+    margin-top: -20px;
+    margin-right: 0px;
 }
 
 #CSS_COLOR_REFACTORING_EXTENSION_DOMCONTENT .colors {

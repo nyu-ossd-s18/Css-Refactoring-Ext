@@ -23,7 +23,7 @@ define(function(require, exports, module) {
     }
     
     function toggleColorPickerCanvasView() {
-        const canvasPickerElement = $(".canvas_picker");
+        const canvasPickerElement = document.getElementsByClassName("canvas_picker")[0];
         console.log(canvasPickerElement.style);
         console.log(window.getComputedStyle(canvasPickerElement).display);
         if (window.getComputedStyle(canvasPickerElement).display === "none") {
@@ -34,6 +34,8 @@ define(function(require, exports, module) {
             console.log("hiding canvas");
             canvasPickerElement.style.display = "none";
         }
+        
+        console.log(window.getComputedStyle(canvasPickerElement).display);
     }
     
     function handleMenuToggle() {
