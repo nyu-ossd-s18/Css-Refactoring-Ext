@@ -1,4 +1,4 @@
-define(function(require, exports, module) {
+define(["colorSelection", "require", "exports", "module"], function(colorSelection, require, exports, module) {
    "use strict";
     console.log("Loaded Css Color Refactoring Extension");
    
@@ -9,7 +9,8 @@ define(function(require, exports, module) {
     AppInit = brackets.getModule("utils/AppInit"),
     ExtensionUtils = brackets.getModule("utils/ExtensionUtils"),
     colorPalettePath = require.toUrl("colorpicker.jpg");
-    
+    console.log("Testing");
+    console.log(colorSelection.testIfLoaded());
     
     const modulePath = ExtensionUtils.getModulePath(module);
     
