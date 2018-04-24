@@ -11,6 +11,7 @@ define(function(require, exports, module) {
     colorPalettePath = require.toUrl("colorpicker.jpg");
     
     
+
     const modulePath = ExtensionUtils.getModulePath(module);
     
     
@@ -23,19 +24,24 @@ define(function(require, exports, module) {
     }
     
     function toggleColorPickerCanvasView() {
-        const canvasPickerElement = document.getElementsByClassName("canvas_picker")[0];
+        const canvasPickerElement = document.getElementsByClassName("canvas_modal")[0];
         console.log(canvasPickerElement.style);
         console.log(window.getComputedStyle(canvasPickerElement).display);
         if (window.getComputedStyle(canvasPickerElement).display === "none") {
             console.log("Displaying canvas");
             canvasPickerElement.style.display = "block";
+            const container = document.getElementById("CSS_COLOR_REFACTORING_EXTENSION_DOMCONTENT");
+            const canvasModal = $("#CSS_COLOR_REFACTORING_EXTENSION_DOMCONTENT .canvas_modal")[0];
+            const bottomOffset = window.getComputedStyle(container).height;
+            canvasModal.style.bottom = bottomOffset;
+            
+            
         }
         else {
             console.log("hiding canvas");
             canvasPickerElement.style.display = "none";
         }
         
-        console.log(window.getComputedStyle(canvasPickerElement).display);
     }
     
     function handleMenuToggle() {
@@ -81,7 +87,11 @@ define(function(require, exports, module) {
             
             const success = function(v) {
                 
+
                 console.log("success");
+                const container = $("#CSS_COLOR_REFACTORING_EXTENSION_DOMCONTENT #container");
+                container.css("max-height", "400px");
+                
                 const colorSelectorDot = $("#CSS_COLOR_REFACTORING_EXTENSION_DOMCONTENT #dot");
                 console.log(colorSelectorDot);
                 
@@ -95,7 +105,7 @@ define(function(require, exports, module) {
                 
                 
                 const colorPaletteElement = $("<img id='colorPalette'>");
-                const canvasElement = document.getElementsByClassName("canvas_picker")[0].getContext("2d");
+                const canvasElement = document.getElementsByClassName("canvas_modal")[0].getContext("2d");
                 console.log(canvasElement);
                 var colorPickerImage = new Image();
                 

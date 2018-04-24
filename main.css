@@ -1,9 +1,10 @@
-#CSS_COLOR_REFACTORING_EXTENSION_DOMCONTENT #container {
-    background-color: #EEEEEE; 
+#CSS_COLOR_REFACTORING_EXTENSION_DOMCONTENT .container {
+    background-color: white; 
     border: 1px solid gray;
     height: 300px;
     padding: 0;
     overflow-x: scroll;
+    max-height: 400px;
 }
 
 #CSS_COLOR_REFACTORING_EXTENSION_DOMCONTENT .baseColorContainer {
@@ -18,12 +19,17 @@
     float: left;
 }
 
-#CSS_COLOR_REFACTORING_EXTENSION_DOMCONTENT .canvas_picker{
+#CSS_COLOR_REFACTORING_EXTENSION_DOMCONTENT .canvas_modal{
     background-color: aquamarine;
     display: none;
     position: fixed;
-    margin-top: -20px;
-    margin-right: 0px;
+    z-index: 10;
+    bottom: 0;
+    right: 0;
+    width: 610px;
+    height: 450px;
+    overflow: auto;
+    padding: 5px;
 }
 
 #CSS_COLOR_REFACTORING_EXTENSION_DOMCONTENT .colors {
