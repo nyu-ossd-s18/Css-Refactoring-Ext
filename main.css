@@ -20,7 +20,7 @@
 }
 
 #CSS_COLOR_REFACTORING_EXTENSION_DOMCONTENT .canvas_modal{
-    background-color: aquamarine;
+    background-color: black;
     display: none;
     position: fixed;
     z-index: 10;
@@ -90,5 +90,5 @@
     height: 80%;
     width: 80%;
     margin: auto;
-    background-color: aqua;
+    background-color: black;
 }

@@ -105,14 +105,16 @@ define(function(require, exports, module) {
                 
                 
                 const colorPaletteElement = $("<img id='colorPalette'>");
-                const canvasElement = document.getElementsByClassName("canvas_modal")[0].getContext("2d");
+                const canvasElement = document.getElementsByClassName("canvas_picker")[0];
+                const ctx = canvasElement.getContext("2d");
                 console.log(canvasElement);
                 var colorPickerImage = new Image();
                 
                 colorPickerImage.src = colorPalettePath;
                 
                 $(colorPickerImage).load(function() {
-                    canvasElement.drawImage(colorPickerImage, 0, 0);
+                    ctx.drawImage(colorPickerImage, 0, 0, colorPickerImage.width, colorPickerImage.height,
+                                           0, 0, canvasElement.width, canvasElement.height);
                 })
                 
                 
