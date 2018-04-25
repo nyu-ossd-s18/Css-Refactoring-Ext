@@ -144,14 +144,34 @@ define(["colorSelection", "require", "exports", "module"], function(cs, require,
                     console.log(matchingPaletteObject.palette);
                     
                     const baseColorElement = $("#CSS_COLOR_REFACTORING_EXTENSION_DOMCONTENT #baseColorBox");
-                    const selectedColor = "#" + matchingPaletteObject.palette[matchingPaletteObject.matchingIndex];
-                    $("#CSS_COLOR_REFACTORING_EXTENSION_DOMCONTENT #")
+                    const colorBox1Element = $("#CSS_COLOR_REFACTORING_EXTENSION_DOMCONTENT #colorBox1");
+                    const colorBox2Element = $("#CSS_COLOR_REFACTORING_EXTENSION_DOMCONTENT #colorBox2");
+                    const colorBox3Element = $("#CSS_COLOR_REFACTORING_EXTENSION_DOMCONTENT #colorBox3");
+                    const colorBox4Element = $("#CSS_COLOR_REFACTORING_EXTENSION_DOMCONTENT #colorBox4");
                     
+                    
+                    const matchedPalette = matchingPaletteObject.palette;
+                    const selectedColor = "#" + matchedPalette[matchingPaletteObject.matchingIndex];
+                    
+                    $("#CSS_COLOR_REFACTORING_EXTENSION_DOMCONTENT #baseColorHexValue").val(selectedColor);
+                    baseColorElement.css("background-color", selectedColor);
                     matchingPaletteObject.palette.splice(matchingPaletteObject.matchingIndex, 1);
                     
                     
+                    $("#CSS_COLOR_REFACTORING_EXTENSION_DOMCONTENT #colorBox1HexVal").val("#" + matchedPalette[0]);
+                    colorBox1Element.css("background-color", "#" + matchedPalette[0]);
                     
-                    baseColorElement.css("background-color", selectedColor);
+                    
+                    $("#CSS_COLOR_REFACTORING_EXTENSION_DOMCONTENT #colorBox2HexVal").val("#" + matchedPalette[2]);
+                    colorBox2Element.css("background-color", "#" + matchedPalette[2]);
+                    
+                    $("#CSS_COLOR_REFACTORING_EXTENSION_DOMCONTENT #colorBox3HexVal").val("#" + matchedPalette[4]);
+                    colorBox3Element.css("background-color", "#" + matchedPalette[4]);
+                    
+                    $("#CSS_COLOR_REFACTORING_EXTENSION_DOMCONTENT #colorBox4HexVal").val("#" + matchedPalette[6]);
+                    colorBox4Element.css("background-color", "#" + matchedPalette[6]);
+                    
+                    
                     console.log(baseColorElement);
     
                     ctx.clearRect(0, 0, canvasElement.width, canvasElement.height);
@@ -159,19 +179,12 @@ define(["colorSelection", "require", "exports", "module"], function(cs, require,
                                            0, 0, canvasElement.width, canvasElement.height);
                     ctx.beginPath()
                     ctx.arc(x, y, 5, 0, 2 * Math.PI);
-                    ctx.stroke();
-                    
-                    
-                    
+                    ctx.stroke();   
                     
                     
                     
                 });
                 
-                //Sample jquery call.
-                const colorBox1 = $("#colorBox1");
-                colorBox1[0].style.backgroundColor = "blue";
-                //console.log(colorBox1.style("background-color"));
                 
             }
     

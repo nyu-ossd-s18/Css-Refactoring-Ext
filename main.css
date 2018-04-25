@@ -56,39 +56,56 @@
     text-align: center;
     display: inline-block;
     float: right;
+    padding: 5px;
 }
 
 #CSS_COLOR_REFACTORING_EXTENSION_DOMCONTENT #colorBox1 {
+    display: block;
     height: 80%; 
     width: 80%; 
     margin: auto; 
-    background-color: #E03616; 
+    background-color: white; 
 }
 
 #CSS_COLOR_REFACTORING_EXTENSION_DOMCONTENT #colorBox2 {
+    display: block;
+    background-color: white; 
     height: 80%; 
     width: 80%; 
     margin: auto;  
-    background-color: #FFF689; 
+    
 }
 
 #CSS_COLOR_REFACTORING_EXTENSION_DOMCONTENT #colorBox3 {
+    display: block;
     height: 80%; 
     width: 80%; 
     margin: auto; 
-    background-color: #CFFFB0; 
+    background-color: white; 
 }
 
 #CSS_COLOR_REFACTORING_EXTENSION_DOMCONTENT #colorBox4 {
+    display: block;
     height: 80%; 
     width: 80%; 
     margin: auto; 
-    background-color: #5998C5; 
+    background-color: white; 
 }
 
 #CSS_COLOR_REFACTORING_EXTENSION_DOMCONTENT #baseColorBox {
+    display: block;
     height: 80%;
     width: 80%;
     margin: auto;
     background-color: black;
+}
+#CSS_COLOR_REFACTORING_EXTENSION_DOMCONTENT input {
+    display: inline-block;
+    margin-top: 5px;
+    width: 80%;
+    font-size: 15px;
+    background-color: transparent;
+    border-color: transparent;
+    color: whitesmoke;
+    text-align: center;
 }
