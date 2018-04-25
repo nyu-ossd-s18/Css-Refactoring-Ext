@@ -3,7 +3,7 @@
 define(["paletteJS/palette"], function(palette) {
 
     function testIfLoaded() {
-        
+        console.log("Test Worked");
     }
     
     function getScheme() {

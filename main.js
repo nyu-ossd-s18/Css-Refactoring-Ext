@@ -1,4 +1,4 @@
-define(function(require, exports, module) {
+define(["colorSelection", "require", "exports", "module"], function(cs, require, exports, module) {
    "use strict";
     console.log("Loaded Css Color Refactoring Extension");
    
@@ -122,6 +122,24 @@ define(function(require, exports, module) {
                     
                     console.log(evt);
                     console.log(ctx.getImageData(evt.offsetX,evt.offsetY, 1, 1).data);
+                    
+                    var x = evt.offsetX;
+                    var y = evt.offsetY;
+                    //ctx.clearRect(0, 0, canvasElement.width, canvasElement.height);
+                    
+                
+                    ctx.clearRect(0, 0, canvasElement.width, canvasElement.height);
+                    ctx.drawImage(colorPickerImage, 0, 0, colorPickerImage.width, colorPickerImage.height,
+                                           0, 0, canvasElement.width, canvasElement.height);
+                    ctx.beginPath()
+                    ctx.arc(x, y, 5, 0, 2 * Math.PI);
+                    ctx.stroke();
+                    
+                    console.log(cs);
+                    
+                    
+                    
+                    
                 });
                 
                 //Sample jquery call.
