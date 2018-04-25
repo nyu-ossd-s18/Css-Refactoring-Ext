@@ -1,5 +1,6 @@
 define(["colorSelection", "require", "exports", "module"], function(cs, require, exports, module) {
    "use strict";
+    
     console.log("Loaded Css Color Refactoring Extension");
    
     
@@ -20,15 +21,14 @@ define(["colorSelection", "require", "exports", "module"], function(cs, require,
     var panel;
     
     function extInit() {
-        console.log("Displaying UI");
+        
     }
     
     function toggleColorPickerCanvasView() {
         const canvasPickerElement = document.getElementsByClassName("canvas_modal")[0];
-        console.log(canvasPickerElement.style);
-        console.log(window.getComputedStyle(canvasPickerElement).display);
+        
         if (window.getComputedStyle(canvasPickerElement).display === "none") {
-            console.log("Displaying canvas");
+            
             canvasPickerElement.style.display = "block";
             const container = document.getElementById("CSS_COLOR_REFACTORING_EXTENSION_DOMCONTENT");
             const canvasModal = $("#CSS_COLOR_REFACTORING_EXTENSION_DOMCONTENT .canvas_modal")[0];
@@ -38,7 +38,7 @@ define(["colorSelection", "require", "exports", "module"], function(cs, require,
             
         }
         else {
-            console.log("hiding canvas");
+            
             canvasPickerElement.style.display = "none";
         }
         
@@ -82,28 +82,27 @@ define(["colorSelection", "require", "exports", "module"], function(cs, require,
         
         ExtensionUtils.loadFile(module, "index.html").then(function (fileContents) {
             
-            console.log(fileContents);
+            
             panel = WorkspaceManager.createBottomPanel(CSS_COlOR_REFACTORING_PANEL,$(fileContents),200);
             
             const success = function(v) {
                 
-
-                console.log("success");
-                for (let i = 0; i < 10; i++) {
-                    console.log(cs.getSequentialPaletteForIndex());    
-                }
+                
+                //Test hexToRgb()
+                
+                
                 
                 const container = $("#CSS_COLOR_REFACTORING_EXTENSION_DOMCONTENT #container");
                 container.css("max-height", "400px");
                 
                 const colorSelectorDot = $("#CSS_COLOR_REFACTORING_EXTENSION_DOMCONTENT #dot");
-                console.log(colorSelectorDot);
+                
                 
                 //Click handler for handling change of selected color.
                 
                 const baseColorBoxElement = document.getElementById("baseColorBox");
                 baseColorBoxElement.addEventListener("click", function(evt) {
-                    console.log(evt);
+                    
                     toggleColorPickerCanvasView();
                 });
                 
@@ -111,7 +110,7 @@ define(["colorSelection", "require", "exports", "module"], function(cs, require,
                 const colorPaletteElement = $("<img id='colorPalette'>");
                 const canvasElement = document.getElementsByClassName("canvas_picker")[0];
                 const ctx = canvasElement.getContext("2d");
-                console.log(canvasElement);
+                
                 var colorPickerImage = new Image();
                 
                 colorPickerImage.src = colorPalettePath;
@@ -124,7 +123,7 @@ define(["colorSelection", "require", "exports", "module"], function(cs, require,
                 canvasElement.addEventListener("click", function(evt) {
 
                     
-                    console.log(evt);
+                    
                     
                     
                     var x = evt.offsetX;
@@ -133,7 +132,28 @@ define(["colorSelection", "require", "exports", "module"], function(cs, require,
                     var rgbVector = ctx.getImageData(x,y, 1, 1).data;
                 
                     var hexCode = cs.rgbToHex(rgbVector);
-                    console.log(hexCode);
+                    console.log(rgbVector);
+                    
+                    let matchingPaletteObject = null;
+                    let acceptableRange = 5;
+                    
+                    do {
+                        matchingPaletteObject = cs.getMatchingPalette(rgbVector, acceptableRange);
+                        acceptableRange = acceptableRange + 10;
+                    } while (matchingPaletteObject === null);
+                    console.log(matchingPaletteObject.palette);
+                    
+                    const baseColorElement = $("#CSS_COLOR_REFACTORING_EXTENSION_DOMCONTENT #baseColorBox");
+                    const selectedColor = "#" + matchingPaletteObject.palette[matchingPaletteObject.matchingIndex];
+                    $("#CSS_COLOR_REFACTORING_EXTENSION_DOMCONTENT #")
+                    
+                    matchingPaletteObject.palette.splice(matchingPaletteObject.matchingIndex, 1);
+                    
+                    
+                    
+                    baseColorElement.css("background-color", selectedColor);
+                    console.log(baseColorElement);
+    
                     ctx.clearRect(0, 0, canvasElement.width, canvasElement.height);
                     ctx.drawImage(colorPickerImage, 0, 0, colorPickerImage.width, colorPickerImage.height,
                                            0, 0, canvasElement.width, canvasElement.height);
@@ -141,7 +161,7 @@ define(["colorSelection", "require", "exports", "module"], function(cs, require,
                     ctx.arc(x, y, 5, 0, 2 * Math.PI);
                     ctx.stroke();
                     
-                    console.log(cs);
+                    
                     
                     
                     
