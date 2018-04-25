@@ -89,6 +89,10 @@ define(["colorSelection", "require", "exports", "module"], function(cs, require,
                 
 
                 console.log("success");
+                for (let i = 0; i < 10; i++) {
+                    console.log(cs.getSequentialPaletteForIndex());    
+                }
+                
                 const container = $("#CSS_COLOR_REFACTORING_EXTENSION_DOMCONTENT #container");
                 container.css("max-height", "400px");
                 
@@ -121,13 +125,15 @@ define(["colorSelection", "require", "exports", "module"], function(cs, require,
 
                     
                     console.log(evt);
-                    console.log(ctx.getImageData(evt.offsetX,evt.offsetY, 1, 1).data);
+                    
                     
                     var x = evt.offsetX;
                     var y = evt.offsetY;
                     //ctx.clearRect(0, 0, canvasElement.width, canvasElement.height);
-                    
+                    var rgbVector = ctx.getImageData(x,y, 1, 1).data;
                 
+                    var hexCode = cs.rgbToHex(rgbVector);
+                    console.log(hexCode);
                     ctx.clearRect(0, 0, canvasElement.width, canvasElement.height);
                     ctx.drawImage(colorPickerImage, 0, 0, colorPickerImage.width, colorPickerImage.height,
                                            0, 0, canvasElement.width, canvasElement.height);
